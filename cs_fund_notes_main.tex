@@ -1,0 +1,20 @@
+\documentclass[A4,12pt,twoside]{book}
+\usepackage{import}
+\usepackage{VinhNotes}
+\usepackage{makeidx}
+\makeindex
+
+\begin{document}
+	\frontmatter
+	\import{./}{cs_fund_title.tex}
+	\clearpage
+	\thispagestyle{empty}
+	
+	\tableofcontents
+	
+	\mainmatter
+	
+	
+\part{The Algorithmic Foundations of Computer Science}
+\import{cs_fund_notes_chapters/}{chapter_2_algorithms}
+\end{document}

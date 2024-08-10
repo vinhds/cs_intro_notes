@@ -1,0 +1,249 @@
+\chapter{Algorithm Discovery and Design}
+
+\section{Representing Algorithms}
+
+\subsection{Pseudocode}
+
+\begin{mydef}{Pseudocode}{pseudocode_def}
+Pseudocode is a set of English-language constructs designed to resemble statements in a programming language but do not actually run on a computer.
+\end{mydef}
+
+\begin{remark}
+Pseudocode represents a compromise between the two extremes of natural and formal languages.
+\end{remark}
+
+In the following sections, we will introduce a set of constructs for three types of algorithmic operations: sequential, conditional and iterative.
+
+\subsection{Sequential Operations}
+
+The three basic sequential operations are \emph{computation}, \emph{input} and \emph{output}.
+
+The pseudocode instruction for performing a computation and saving the result is:
+
+\begin{algorithmic}
+	\State Set the value of \emph{variable} to \emph{arithmetic expression}
+\end{algorithmic}
+Or more concisely,
+\begin{algorithmic}
+	\State $\text{\emph{variable}} \gets \text{\emph{arithmetic expression}}$
+\end{algorithmic}
+
+The pseudocode instructions for input and output are
+\begin{algorithmic}
+	\State Get values for variable,variable, \ldots.
+	\State Print the values of variable, variable, \ldots.
+	
+\end{algorithmic}
+Or
+\begin{algorithmic}
+	\State \textbf{input} variable,variable, \ldots.
+	\State \Output variable,variable, \ldots.
+\end{algorithmic}
+
+\subsubsection{Practice Problems}
+Write pseudocode for the following:
+\begin{problem}{}{p1_sequential}
+An algorithm that gets three data value $x$, $y$ and $z$ as input and output the average of those three values.
+\end{problem}
+\begin{algorithm}
+	\caption*{Algorithm for problem ~\ref{prob:p1_sequential}}
+	\begin{algorithmic}[1]
+		\State \textbf{input} $x$, $y$, $z$
+		\State $average \gets (x + y + z) / 3$
+		\State \Output average
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{problem}{}{p2_sequential}
+An algorithm that gets the radius $r$ of a circle as input. Its output is both the circumference and the area of a circle of radius $r$.
+\end{problem}
+
+\begin{algorithm}
+	\caption*{Algorithm for problem ~\ref{prob:p2_sequential}}
+	\begin{algorithmic}[1]
+		\State \textbf{input} $r$
+		\State $circumference \gets 2\pi r$
+		\State $area \gets \pi r^2$
+		\State \Output $circumference$, $area$
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{problem}{}{p3_sequential}
+An algorithm that gets the amount of electricity used in kilowatt-hours and the cost of electricity per kilowatt-hour. Its output is the total amount of the electric bill, including an $8\%$ sale tax.
+\end{problem}
+
+\begin{algorithm}
+	\caption*{Algorithm for problem ~\ref{prob:p3_sequential}}
+	\begin{algorithmic}[1]
+		\State \textbf{input} $amount\_kwh$ and $cost\_per\_kwh$
+		\State $amount\_bill\gets amount\_kwh\cdot cost\_per\_kwh \cdot 1.08$
+		\State \Output $amount\_bill$.
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{problem}{}{p4_sequential}
+An algorithm that inputs your current credit card balance, the total dollar amount of new purchases, and the total dollar amount of all payments. The algorithm computes the new balance, which includes a 12$\%$ interest charge on any unpaid balance.
+\end{problem}
+
+\begin{algorithm}[H]
+\caption*{Algorithm for problem ~\ref{prob:p4_sequential}}
+	\begin{algorithmic}[1]
+		\State \textbf{input} $balance$, $purchases$, and $payments$
+		\State $new\_balance\gets 1.12\cdot(balance + purchases - payments)$
+		\State \Output  $new\_balance$
+	\end{algorithmic}
+\end{algorithm}
+
+
+\begin{problem}{}{p5_sequential}
+An algorithm that is given the length and width, in feet, of a rectangular carpet and determines its total cost given that the material cost is $\$23$ per square yard.
+\end{problem}
+
+\begin{algorithm}
+	\caption*{Algorithm for ~\ref{prob:p5_sequential}}
+	\begin{algorithmic}[1]
+		\State \textbf{input} $length$ and $width$
+		\State $area\gets (length\cdot width) / 9$
+		\State $cost\gets area \cdot 23$
+		\State \Output $cost$
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{problem}{}{p6_sequential}
+An algorithm that is given three numbers corresponding to the number of times a race car driver has finished first, second, and third. The algorithm computes and displays how many points that driver has earned given 5 points for a first, 3 points for a second and 1 point for a third place finish.
+\end{problem}
+
+\begin{algorithm}
+	\caption*{Algorithm for problem ~\ref{prob:p6_sequential}}
+	\begin{algorithmic}[1]
+		\State \textbf{input} $first$, $second$, and $third$
+		\State $points \gets 5\cdot first + 3\cdot second + third$
+		\State \Output $points$
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{Conditional and Iterative Operations}
+
+\emph{Conditional statements} allow an algorithm to ask a yes/no question and select the next operation to perform on the basis of the answer to that question. The most common conditional statement is the if/then/else statement. It has the following format:
+
+\begin{algorithmic}
+	\If{condition}
+		\State first set of algorithmic operations
+	\Else
+		\State second set of algorithmic operations
+	\EndIf
+\end{algorithmic}
+
+Or 
+\begin{algorithmic}
+	\If{condition}
+		\State first set of algorithmic operations
+	\ElsIf{condition}
+		\State second set of algorithmic operations
+	\Else 	
+		\State third set of algorithmic operations
+	\EndIf
+\end{algorithmic}
+\emph{Iteration} or \emph{looping} is the repetition of a block of instructions. 
+
+A \emph{pretest} loop is a loop where the continuation condition is tested at the beginning of each pass through the loop. 
+
+The pretest loop \emph{while} has the following format:
+
+\begin{algorithmic}
+	\While{condition}
+	\State operation
+	\State \vdots
+	\State operation
+	\EndWhile	
+\end{algorithmic}
+
+A \emph{posttest} loop is one where the test is done at the end of the loop body. It has the following format:
+
+\begin{algorithmic}
+	\Repeat
+		\State operation
+		\State \vdots
+		\State operation
+	\Until{condition}
+\end{algorithmic}
+
+\begin{remark}
+In the repeat/until loop, the loop body is always executed at least once, whereas the while loop can execute 0, 1 ir more times.
+\end{remark}
+
+\begin{remark}
+If a problem can be solved algorithmically, it can be expressed by using only the sequential, conditional and iterative operations.
+\end{remark}
+
+\subsubsection{Practice Problems}
+
+\begin{problem}{}{p1_cond}
+Write an algorithm that gets as input three data values $x$, $y$ and $z$ and output the average of these values if the value of $x$ is positive. If the value of $x$ is either 0 or negative, your algorithm should print the error message ``Bad Data'' instead.
+\end{problem}
+
+\begin{algorithm}
+	\caption*{Algorithm for problem ~\ref{prob:p1_cond}}
+	\begin{algorithmic}
+		\State \textbf{input} $x, y, z$
+		\If{$x > 0$}
+			\State $average \gets (x + y + z)/3$
+		\Else 
+			\State \Output ``Bad Data''
+		\EndIf
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{problem}{}{p2_cond}
+Write an algorithm that gets as input your current credit card balance, the total dollar amount of new purchases, and the total dollar amount of all payments. The algorithm computes the new balance, which includes an $8\%$ interest on any unpaid balance below $\$100$, $12\%$ interest on any unpaid balance between $\$100$ and $\$500$, inclusive, and $16\%$ on any unpaid balance above $\$500$.
+\end{problem}
+
+\begin{algorithm}[H]
+	\caption*{Algorithm for Problem ~\ref{prob:p2_cond}}
+	\begin{algorithmic}
+		\State \textbf{input} $balance$, $purchases$, and $payments$
+		\State $unpaid \gets balance + purchases - payments$
+		\If{$unpaid < 100$}
+			\State $new\_balance\gets 1.08\cdot unpaid$
+		\ElsIf{$100 \leq unpaid \leq 500$}
+			\State $new\_balance\gets 1.12\cdot unpaid$
+		\Else
+			\State $new\_balance\gets 1.16\cdot unpaid$
+		\EndIf
+		\State \Output $new\_balance$
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{problem}{}{p3_cond}
+Write an algorithm that gets as input a single nonzero data value $x$ and outputs the three values $x^2$, $\sin x$, and $1/x$. This process is repeated until the input value for $x$ is equal to $999$, at which time the algorithm terminates. 
+\end{problem}
+
+\begin{algorithm}[H]
+	\caption*{Algorithm for Problem ~\ref{prob:p3_cond}}
+	\begin{algorithmic}
+		\Repeat
+			\State \textbf{input} $x$
+			\State $value\_1 \gets x^2$, $value\_2 \gets \sin x$, $value\_3\gets 1/x$ 
+			\State \Output $value\_1, value\_2, value\_3$
+		\Until{$x=999$}
+	\end{algorithmic}
+\end{algorithm}
+%\begin{algorithm}
+%	\caption{An algorithm with caption}\label{alg:cap}
+%	\begin{algorithmic}
+%		\Require $n \geq 0$
+%		\Ensure $y = x^n$
+%		\State $y \gets 1$
+%		\State $X \gets x$
+%		\State $N \gets n$
+%		\While{$N \neq 0$}
+%		\If{$N$ is even}
+%		\State $X \gets X \times X$
+%		\State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+%		\ElsIf{$N$ is odd}
+%		\State $y \gets y \times X$
+%		\State $N \gets N - 1$
+%		\EndIf
+%		\EndWhile
+%	\end{algorithmic}
+%\end{algorithm}
