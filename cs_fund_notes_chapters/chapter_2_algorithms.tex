@@ -184,7 +184,7 @@ Write an algorithm that gets as input three data values $x$, $y$ and $z$ and out
 
 \begin{algorithm}
 	\caption*{Algorithm for problem ~\ref{prob:p1_cond}}
-	\begin{algorithmic}
+	\begin{algorithmic}[1]
 		\State \textbf{input} $x, y, z$
 		\If{$x > 0$}
 			\State $average \gets (x + y + z)/3$
@@ -200,7 +200,7 @@ Write an algorithm that gets as input your current credit card balance, the tota
 
 \begin{algorithm}[H]
 	\caption*{Algorithm for Problem ~\ref{prob:p2_cond}}
-	\begin{algorithmic}
+	\begin{algorithmic}[1]
 		\State \textbf{input} $balance$, $purchases$, and $payments$
 		\State $unpaid \gets balance + purchases - payments$
 		\If{$unpaid < 100$}
@@ -220,7 +220,7 @@ Write an algorithm that gets as input a single nonzero data value $x$ and output
 
 \begin{algorithm}[H]
 	\caption*{Algorithm for Problem ~\ref{prob:p3_cond}}
-	\begin{algorithmic}
+	\begin{algorithmic}[1]
 		\Repeat
 			\State \textbf{input} $x$
 			\State $value\_1 \gets x^2$, $value\_2 \gets \sin x$, $value\_3\gets 1/x$ 
@@ -228,6 +228,46 @@ Write an algorithm that gets as input a single nonzero data value $x$ and output
 		\Until{$x=999$}
 	\end{algorithmic}
 \end{algorithm}
+
+\begin{problem}{}{p4_cond}
+Add the following feature in the algorithm in the previous problem: Assume the input for the data value $x$ can be any value, including $0$. Output an error message saying that you are unable to compute the value $1/x$ if $x = 0$.	
+\end{problem}
+\begin{algorithm}[H]
+\caption*{Algorithm for Problem ~\ref{prob:p4_cond}}
+\begin{algorithmic}[1]
+	\Repeat
+	\State \textbf{input} $x$
+	\If{$x = 0$}
+		\State \Output ``cannot compute $1/x$ when $x = 0$''
+	\Else
+		\State $value\_1 \gets x^2$, $value\_2 \gets \sin x$, $value\_3\gets 1/x$ 
+		\State \Output $value\_1, value\_2, value\_3$
+	\EndIf
+	\Until{$x=999$}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{problem}{}{p5_cond}
+Write an algorithm that inputs the length and width, in feet, of a rectangular carpet and the price of the carpet in dollars per square yard. It then determines if you can afford to purchase this carpet, given that your total budget for carpeting is $\$500$. If the cost of the carpet is less than or equal to $\$250$, output a message that this is a particularly good deal.
+\end{problem}
+
+\begin{algorithm}[H]
+	\caption*{Algorithm for problem ~\ref{prob:p5_cond}}
+	\begin{algorithmic}[1]
+		\State \textbf{input} $length$, $width$ and $unit\_price$
+		\State $area\gets length\cdot width / 9$
+		\State  $total\gets area\cdot unit\_price$
+		\If{$total \leq 250$}
+			\State \Output ``You can afford it and this is a particularly good deal.''
+		\ElsIf{$total \leq 500$}
+			\State \Output ``You can afford it.''
+		\Else
+			\State \Output ``You cannot afford it.''
+		\EndIf
+	\end{algorithmic}
+\end{algorithm}
+
+\section{Examples of Algorithmic Problem Solving}
 %\begin{algorithm}
 %	\caption{An algorithm with caption}\label{alg:cap}
 %	\begin{algorithmic}
